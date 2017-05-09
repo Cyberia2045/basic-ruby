@@ -65,9 +65,27 @@ class ZooPatron < Person
 		@residence = residence
 		super()
 	end 
+
+	def tour(tour_guide, animal_group)
+		tour_guide + " will take you on a tour of the " + animal_group
+	end
 end
 
+class TourGuide < Person
 
+	attr_accessor :name, :animal_group
+
+	def initialize(name, animal_group)
+		@name = name
+		@animal_group = animal_group
+		super()
+	end
+
+	def tour(animal_group)
+		"I am " + name + ", I will be taking you on a tour of the " + animal_group + " today."
+	end
+
+end
 
 class Reptile < Animal
 
