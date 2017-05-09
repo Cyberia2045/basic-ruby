@@ -34,15 +34,40 @@ end
 
 class Person < Primate
 
-	attr_accessor :bipedal, :speech, :name 
+	attr_accessor :bipedal, :speech
 
-	def initialize(name)
+	def initialize
 		@bipedal = true
 		@speech = true
+		super
+	end
+end
+
+class Zookeeper < Person
+
+	attr_accessor :occupation, :animal_group, :name, :employee
+
+	def initialize(name, animal_group)
 		@name = name
+		@employee = true
+		@occupation = "zookeeper"
+		@animal_group = animal_group
 		super()
 	end
 end
+
+class ZooPatron < Person
+
+	attr_accessor :name, :residence
+
+	def initialize(name, residence)
+		@name = name
+		@residence = residence
+		super()
+	end 
+end
+
+
 
 class Reptile < Animal
 
