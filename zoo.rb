@@ -1,10 +1,11 @@
 class Animal 
-	attr_reader :heterotrophic, :eukaryotic, :motile
+	attr_accessor :heterotrophic, :eukaryotic, :motile, :fed
 
 	def initialize
 		@heterotrophic = true
 		@eukaryotic = true
 		@motile = true
+		@fed = false
 	end
 end
 
@@ -16,7 +17,7 @@ class Mammal < Animal
 		@endothermic = true
 		@vertebrate = true
 		@viviparous = true
-		super()
+		super
 	end
 end
 
@@ -29,6 +30,15 @@ class Primate < Mammal
 		@opposable_thumbs = true
 		@stereoscopic_vision = true
 		super
+	end
+end
+
+class Bonobo < Primate
+	attr_accessor :diet
+
+	def initialize
+		@diet = "omnivore"
+		super()
 	end
 end
 
@@ -45,15 +55,19 @@ end
 
 class Zookeeper < Person
 
-	attr_accessor :occupation, :animal_group, :name, :employee
+	attr_accessor :occupation, :animal_name, :name, :employee, :animal_group, :food
 
 	def initialize(name, animal_group)
 		@name = name
 		@employee = true
 		@occupation = "zookeeper"
-		@animal_group = animal_group
 		super()
 	end
+
+	def feed(animal_name, food)
+		animal_name.fed = true
+	end
+
 end
 
 class ZooPatron < Person
@@ -97,6 +111,17 @@ class Reptile < Animal
 		@amniotic = true
 		super()
 	end
+end
+
+class Crocodile < Reptile
+
+	attr_accessor :tail
+
+	def initialize
+		@tail = true
+		@diet = "carnivore"
+	end
+
 end
 
 class Amphibian < Animal
