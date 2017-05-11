@@ -37,19 +37,13 @@
 
 # exercise 4
 
-# house_words = ["Lannister", "Hear Me Roar!"]
-# house_hash = {}
+mobile_device_makers = [:Samsung, :Apple, :Google]
+mobile_device_models = ["Galaxy", "iPhone", "Pixel"]
+mobile_device_hash = {}
 
-# house_key = house_words[0].to_sym
-# house_value = house_words[1]
+mobile_device_makers.each_with_index { |key,index| mobile_device_hash[key] = mobile_device_models[index] }
 
-# house_hash[house_key] = house_value
-
-# puts house_hash
-
-
-
-
+puts mobile_device_hash
 
 
 
